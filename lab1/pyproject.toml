@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "mlops-lab1"
+description = "ML training pipeline for CIFAR-10 classification"
+authors = ["Kostia Degtiarenko <kostia@example.com>"]
+version = "0.1.0"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+torch = "^2.1.0"
+torchvision = "^0.16.0"
+numpy = "^1.24"
+pandas = "^2.0"
+pyyaml = "^6.0"
+matplotlib = "^3.6"
+scikit-learn = "^1.3"
+
+[tool.poetry.dev-dependencies]
+mypy = "^1.0"
+ruff = "^0.1"
+black = "^23.1"
+isort = "^5.12"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.ruff]
+line-length = 100
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true

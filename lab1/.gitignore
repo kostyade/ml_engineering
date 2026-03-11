@@ -1,0 +1,9 @@
+data/
+artifacts/*.pth
+__pycache__/
+.venv/
+*.pyc
+.mypy_cache/
+.ruff_cache/
+notebooks
+logs/
