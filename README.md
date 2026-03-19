@@ -5,3 +5,4 @@ This repository contains lab assignments for the ML Engineering (MLOps) course. 
 | Folder | Topic |
 |--------|-------|
 | [lab1](lab1/) | Basic ML Training Pipeline (CIFAR-10 classification) |
+| [lab2](lab2/) | Automating Dataset Extension (config-driven batch selection) |
