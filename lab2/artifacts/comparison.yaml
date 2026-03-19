@@ -1,0 +1,18 @@
+config_1batch:
+  accuracy: 0.6414
+  f1_score: 0.6413362896253062
+  precision: 0.647232576700344
+  recall: 0.6414
+  test_loss: 1.0137790464291907
+config_3batch:
+  accuracy: 0.7322
+  f1_score: 0.7299272211818828
+  precision: 0.7306324937121801
+  recall: 0.7322
+  test_loss: 0.7912782514171236
+config_5batch:
+  accuracy: 0.7541
+  f1_score: 0.7525647619154106
+  precision: 0.7555562698570026
+  recall: 0.7541
+  test_loss: 0.7406237100719646
