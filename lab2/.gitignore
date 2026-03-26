@@ -1,5 +1,5 @@
 data/
-artifacts/*.pth
+**/*.pth
 __pycache__/
 .venv/
 *.pyc

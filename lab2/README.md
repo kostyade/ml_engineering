@@ -20,10 +20,10 @@ This trains a fresh CNN for each config, evaluates on the static test set, and s
 
 ## Results
 
-| Config       | Accuracy | Precision | Recall | F1 Score | Test Loss |
-|--------------|----------|-----------|--------|----------|-----------|
-| 1 batch (10k)  | 64.14%   | 64.72%    | 64.14% | 64.13%   | 1.0138    |
-| 3 batches (30k) | 73.22%   | 73.06%    | 73.22% | 72.99%   | 0.7913    |
-| 5 batches (40k) | 75.41%   | 75.56%    | 75.41% | 75.26%   | 0.7406    |
+| Config            | Accuracy | Precision | Recall | F1 Score | Test Loss |
+|-------------------|----------|-----------|--------|----------|-----------|
+| 1 batch (8k)      | 63.57%   | 64.60%    | 63.58% | 63.62%   | 1.0468    |
+| 3 batches (24k)   | 72.30%   | 72.33%    | 72.35% | 72.25%   | 0.8362    |
+| 4 batches (32k)   | 74.30%   | 74.68%    | 74.38% | 74.35%   | 0.7763    |
 
 More training data consistently improves all metrics. See [REPORT.md](REPORT.md) for details.

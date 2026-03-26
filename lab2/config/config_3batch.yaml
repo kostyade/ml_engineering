@@ -1,8 +1,10 @@
 data:
   save_dir: "./data"
-  train_batches: [1, 2, 3]
-  val_batches: [4]
+  test_size: 0.2
   random_state: 42
+  n_batches: 5
+  train_batches: [0, 1, 2]
+  val_batches: [3]
 
 training:
   batch_size: 64
