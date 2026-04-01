@@ -1,0 +1,35 @@
+stages:
+  download:
+    cmd: python -m src.download
+    params:
+      - data.save_dir
+    outs:
+      - data/cifar-10-batches-py
+
+  train:
+    cmd: python -m src.train
+    deps:
+      - data/cifar-10-batches-py
+      - src/train.py
+      - src/model.py
+      - src/data_loader.py
+    params:
+      - data
+      - training
+      - model
+    outs:
+      - artifacts/best_model.pth
+      - artifacts/loss_plot.png
+
+  evaluate:
+    cmd: python -m src.evaluate
+    deps:
+      - artifacts/best_model.pth
+      - src/evaluate.py
+      - src/data_loader.py
+    params:
+      - data
+      - model
+    metrics:
+      - artifacts/metrics.json:
+          cache: false

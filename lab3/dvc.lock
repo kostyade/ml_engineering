@@ -1,0 +1,99 @@
+schema: '2.0'
+stages:
+  download:
+    cmd: python -m src.download
+    params:
+      params.yaml:
+        data.save_dir: ./data
+    outs:
+    - path: data/cifar-10-batches-py
+      hash: md5
+      md5: 2c2c368a819f1df18fd0afa1c052c6c4.dir
+      size: 186214114
+      nfiles: 8
+  train:
+    cmd: python -m src.train
+    deps:
+    - path: data/cifar-10-batches-py
+      hash: md5
+      md5: 2c2c368a819f1df18fd0afa1c052c6c4.dir
+      size: 186214114
+      nfiles: 8
+    - path: src/data_loader.py
+      hash: md5
+      md5: 864de155de1de9c4de7a3f678b2d6258
+      size: 7431
+    - path: src/model.py
+      hash: md5
+      md5: 01f2d4c750b7286a77f32a17d23c7ecd
+      size: 919
+    - path: src/train.py
+      hash: md5
+      md5: d94a8098b92abe412004b0dfab298b72
+      size: 4003
+    params:
+      params.yaml:
+        data:
+          save_dir: ./data
+          test_size: 0.2
+          random_state: 42
+          n_batches: 5
+          train_batches:
+          - 0
+          - 1
+          - 2
+          - 3
+          val_batches:
+          - 4
+        model:
+          n_classes: 10
+        training:
+          batch_size: 64
+          num_workers: 2
+          num_epochs: 15
+          learning_rate: 0.001
+    outs:
+    - path: artifacts/best_model.pth
+      hash: md5
+      md5: 58d1d433b8dfa6b3b5c475a2ea8e5dba
+      size: 2485941
+    - path: artifacts/loss_plot.png
+      hash: md5
+      md5: babd8d2e7f98eb89b6527e942022d5a1
+      size: 28637
+  evaluate:
+    cmd: python -m src.evaluate
+    deps:
+    - path: artifacts/best_model.pth
+      hash: md5
+      md5: 58d1d433b8dfa6b3b5c475a2ea8e5dba
+      size: 2485941
+    - path: src/data_loader.py
+      hash: md5
+      md5: 864de155de1de9c4de7a3f678b2d6258
+      size: 7431
+    - path: src/evaluate.py
+      hash: md5
+      md5: 48208bf37f5543b0542c907bd01a78ac
+      size: 2665
+    params:
+      params.yaml:
+        data:
+          save_dir: ./data
+          test_size: 0.2
+          random_state: 42
+          n_batches: 5
+          train_batches:
+          - 0
+          - 1
+          - 2
+          - 3
+          val_batches:
+          - 4
+        model:
+          n_classes: 10
+    outs:
+    - path: artifacts/metrics.json
+      hash: md5
+      md5: 2ffbd6fa8c2e77897b346752bfe0c55b
+      size: 112
