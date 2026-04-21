@@ -1,0 +1,20 @@
+data:
+  save_dir: "./data"
+  test_size: 0.2
+  random_state: 42
+  n_batches: 5
+  train_batches: [0, 1, 2]
+  val_batches: [3]
+
+training:
+  batch_size: 64
+  num_workers: 2
+  num_epochs: 15
+  learning_rate: 0.001
+
+model:
+  n_classes: 10
+
+artifacts:
+  save_dir: "./artifacts/3batch"
+  best_model_name: "best_model.pth"

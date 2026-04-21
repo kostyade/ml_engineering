@@ -1,0 +1,10 @@
+data/
+**/*.pth
+__pycache__/
+.venv/
+*.pyc
+.mypy_cache/
+.ruff_cache/
+logs/
+mlruns/
+mlartifacts/
