@@ -40,7 +40,7 @@ W&B is integrated directly into the pipeline:
 
 The dashboard immediately displays our runs after the script finishes:
 
-![Project overview — all 6 runs in the W&B runs table](screenshots/01_project_overview.png)
+![Config panel — all hyperparameters logged via wandb.config](screenshots/01_config_panel.png)
 
 ## 3. Logging Details
 
@@ -48,7 +48,7 @@ The dashboard immediately displays our runs after the script finishes:
 
 All YAML config values are passed to W&B via the `config=config` argument of `wandb.init()`. This populates `wandb.config`, which is searchable and filterable in the UI. 13 parameters are logged per run, organized hierarchically:
 
-![Config panel — all hyperparameters logged via wandb.config](screenshots/08_config_panel.png)
+![Project overview — all 6 runs in the W&B runs table](screenshots/08_project_overview.png)
 
 The Config section shows nested groupings (`artifacts`, `data`, `model`, `training`) matching the YAML structure. The Summary section on the right shows the final logged metrics for the run.
 
