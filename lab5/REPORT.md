@@ -40,7 +40,7 @@ W&B is integrated directly into the pipeline:
 
 The dashboard immediately displays our runs after the script finishes:
 
-![Config panel — all hyperparameters logged via wandb.config](screenshots/01_config_panel.png)
+![Project overview — all 6 runs in the W&B runs table](screenshots/01_project_overview.png)
 
 ## 3. Logging Details
 
@@ -48,7 +48,7 @@ The dashboard immediately displays our runs after the script finishes:
 
 All YAML config values are passed to W&B via the `config=config` argument of `wandb.init()`. This populates `wandb.config`, which is searchable and filterable in the UI. 13 parameters are logged per run, organized hierarchically:
 
-![Project overview — all 6 runs in the W&B runs table](screenshots/08_project_overview.png)
+![Config panel — all hyperparameters logged via wandb.config](screenshots/02_config_panel.png)
 
 The Config section shows nested groupings (`artifacts`, `data`, `model`, `training`) matching the YAML structure. The Summary section on the right shows the final logged metrics for the run.
 
@@ -62,13 +62,13 @@ Two types of metrics are logged:
 **Final metrics** (logged once after evaluation):
 - `accuracy`, `precision`, `recall`, `f1_score`, `test_loss` — also written to `wandb.summary` for easy comparison in the runs table
 
-![Workspace charts showing all 6 runs with loss curves and final metric bars](screenshots/02_workspace_charts.png)
+![Workspace charts showing all 6 runs with loss curves and final metric bars](screenshots/03_workspace_charts.png)
 
 ### Automatic System Metrics
 
 W&B automatically captures hardware and environment metrics for every run with no extra code — a major advantage over MLflow:
 
-![System metrics auto-logged: CPU/GPU usage, memory, network](screenshots/07_system_metrics.png)
+![System metrics auto-logged: CPU/GPU usage, memory, network](screenshots/04_system_metrics.png)
 
 ### Artifacts (Part 3)
 
@@ -135,13 +135,13 @@ Each configuration uses a structured 2-level naming convention:
 
 Grouping in the W&B UI collapses related runs together, making it easy to compare across configs:
 
-![Workspace with runs grouped by config — 3 clean lines per chart](screenshots/03_grouped_comparison.png)
+![Workspace with runs grouped by config — 3 clean lines per chart](screenshots/07_grouped_comparison.png)
 
 ### Run Comparison
 
 Selecting individual runs shows their full overview, including environment, command, runtime, and source git state — useful for reproducing any experiment:
 
-![Run overview with environment and git state](screenshots/04_run_overview.png)
+![Run overview with environment and git state](screenshots/08_run_overview.png)
 
 The grouped workspace view (above) provides effective side-by-side comparison: training/validation loss curves overlaid for all 3 configs, plus bar charts for final test metrics. The comparison clearly shows:
 - **val_loss** chart — `config_5batch` reaches the lowest loss earliest
