@@ -8,3 +8,4 @@ This repository contains lab assignments for the ML Engineering (MLOps) course. 
 | [lab2](lab2/) | Automating Dataset Extension (config-driven batch selection) |
 | [lab3](lab3/) | DVC Pipeline Automation (reproducible ML workflows) |
 | [lab4](lab4/) | MLflow Experiment Tracking and Artifact Management |
+| [lab5](lab5/) | Weights & Biases Experiment Tracking and Artifact Management |
