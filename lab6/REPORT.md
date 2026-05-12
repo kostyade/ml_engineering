@@ -124,15 +124,17 @@ Uploading a higher-resolution real-world bird photo (auto-resized to 32×32):
 
 ![Uploaded bird image predicted with 95% confidence](screenshots/13_predict_uploaded_image.png)
 
-The Grad-CAM heatmap pinpoints exactly where the bird's head is — a textbook success case. The probability bar confirms the model is very confident (95%):
+Interestingly, the Grad-CAM heatmap is concentrated in the **upper-right region of the image**, above the bird — on the green foliage/background, *not* on the bird's body or head. Despite this, the model is 95% confident it's a bird. This is a useful debugging insight: the model has learned that "small subject + green leafy background" is strongly associated with the "bird" class. It's getting the right answer for partly the wrong reason — relying on contextual cues (perching environment) rather than the subject itself. This kind of shortcut learning is exactly what interpretability tools are meant to surface. The probability bar confirms the high confidence (95%):
 
 ![Probability bar for uploaded bird — bird at 95%](screenshots/14_predict_uploaded_probability.png)
 
-Switching the explained class to "automobile" on the same bird image shows the model's *implicit* evidence for the wrong class — and the heatmap highlights the branch the bird is sitting on (long, horizontal, somewhat metallic-looking after downsizing):
+Switching the explained class to "automobile" on the same bird image shows where the model finds *any* weak evidence for the wrong class — the heatmap shifts to a large warm region covering the bird's body and the lower portion of the image:
 
-![Same bird, Grad-CAM explaining "automobile" — focused on the branch](screenshots/15_predict_uploaded_alt_class.png)
+![Same bird, Grad-CAM explaining "automobile"](screenshots/15_predict_uploaded_alt_class.png)
 
-This is a useful interpretability story: the model is using sensible features (the bird's head for "bird", linear horizontal structure for "automobile") even when the overall prediction is correct.
+Two takeaways from this side-by-side:
+1. Even though "automobile" probability is essentially zero (the bar chart shows it as a sliver next to airplane's small bar), Grad-CAM still produces a coherent localized region — it visualizes *relative* evidence, not absolute confidence.
+2. The two heatmaps (for "bird" and "automobile") cover different parts of the image, confirming that Grad-CAM is class-specific. The "bird" heatmap landed on the background context; the "automobile" heatmap landed on the subject itself.
 
 ## 6. Engineering Reflection
 
