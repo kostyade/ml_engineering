@@ -1,0 +1,17 @@
+mlflow:
+  tracking_uri: "file:../lab4/mlruns"
+  experiment_name: "cifar10-classification"
+
+data:
+  cifar_dir: "../lab4/data/cifar-10-batches-py"
+  test_size: 0.2
+  random_state: 42
+  n_batches: 5
+
+model:
+  n_classes: 10
+  last_conv_layer: "features.6"
+
+ui:
+  page_title: "CIFAR-10 Model Analysis Dashboard"
+  default_max_errors: 24
